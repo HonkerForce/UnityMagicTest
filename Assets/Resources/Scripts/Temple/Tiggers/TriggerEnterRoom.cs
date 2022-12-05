@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TriggerEnterRoom : MonoBehaviour
 {
-
+	// 传入游戏位置trans
+	Transform pos;
     void Start()
     {
         
@@ -17,6 +18,9 @@ public class TriggerEnterRoom : MonoBehaviour
 
 	private void OnTriggerEnter(Collider player) 
 	{
-		
+		if (player.tag == "Player")
+		{
+			TempleEvent.moveEvent?.Invoke(pos);
+		}
 	}
 }
