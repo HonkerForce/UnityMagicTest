@@ -5,7 +5,7 @@ using UnityEngine;
 public class TriggerEnterRoom : MonoBehaviour
 {
 	// 传入游戏位置trans
-	Transform pos;
+	[SerializeField] Transform pos;
     void Start()
     {
         

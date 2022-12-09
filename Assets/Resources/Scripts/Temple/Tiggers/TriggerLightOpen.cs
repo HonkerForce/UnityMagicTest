@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerLightOpen : MonoBehaviour
 {
-	public int? nIndex;
+	public int nIndex;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class TriggerLightOpen : MonoBehaviour
 	{
 		if(other.gameObject.tag == "Point")
 		{
-			TempleEvent.figureEvent?.Invoke(nIndex??-1);
+			TempleEvent.figureEvent?.Invoke(nIndex);
 		}
 	}
 }

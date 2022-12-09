@@ -5,16 +5,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	// 玩家trans
-	Transform playerTrans;
+	[SerializeField] Transform playerTrans;
 
 	// 方体trans
-	Transform cubeTrans;
+	[SerializeField] Transform cubeTrans;
 
 	// 灯光游戏体组
-	GameObject[] lightObjs;
+	[SerializeField] GameObject[] lightObjs;
 
 	// 围栏游戏体
-	GameObject fenceObj;
+	[SerializeField] GameObject fenceObj;
 
     void Start()
     {
