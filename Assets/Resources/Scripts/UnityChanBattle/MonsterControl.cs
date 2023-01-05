@@ -6,25 +6,65 @@ using UnityEngine.AI;
 
 public class MonsterControl : MonoBehaviour
 {
+	public Vector3 initPos;
+
 	private NavMeshAgent monsterAgent;
-	public Transform targetTrans;
-	public static readonly float TargetRadius = 0.5f;
 
-	private RaycastHit mouseClickHit;
+	private Vector3 targetPos;
 
-	// Start is called before the first frame update
+	// private RaycastHit mouseClickHit;
+
+	void Awake()
+	{
+		if (GameControl.targetChange == null)
+		{
+			GameControl.targetChange = ChangeTargetPos;
+		}
+
+		if (GameControl.initMonster == null)
+		{
+			GameControl.initMonster = InitMonster;
+		}
+	}
+
 	void Start()
     {
         monsterAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-	    if (Input.GetMouseButtonDown(0) && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out mouseClickHit))
+	    if (GameControl.gameIsPause)
 	    {
-		    Vector3 pos = mouseClickHit.point;
-			monsterAgent?.SetDestination(pos);
+		    if (monsterAgent.hasPath)
+		    {
+			    monsterAgent.isStopped = true;
+		    }
+		    return;
+	    }
+
+	    if (monsterAgent != null && targetPos != monsterAgent.destination)
+	    {
+		    // Vector3 pos = mouseClickHit.point;
+			monsterAgent?.SetDestination(targetPos);
 	    }
 	}
+
+    void ChangeTargetPos(Vector3 pos)
+    {
+	    if (targetPos != pos)
+	    {
+		    targetPos = pos;
+	    }
+    }
+
+    void InitMonster()
+    {
+	    transform.position = initPos;
+
+	    if (monsterAgent != null)
+	    {
+		    monsterAgent.isStopped = false;
+	    }
+    }
 }

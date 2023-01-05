@@ -19,10 +19,23 @@ public class AttackedByMonster : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+	    if (GameControl.gameIsPause)
+	    {
+		    return;
+	    }
 	    if (other != null && other.tag == "Monster")
 	    {
 		    // µ÷ÓÃÎ¯ÍÐ
-
+		    string strParam = "";
+		    if (PlayerControl.isAttacking)
+		    {
+			    strParam = "win";
+		    }
+		    else
+		    {
+			    strParam = "fail";
+		    }
+		    GameControl.gameOver?.Invoke(strParam);
 	    }
     }
 }
