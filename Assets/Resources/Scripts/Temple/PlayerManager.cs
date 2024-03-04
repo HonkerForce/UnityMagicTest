@@ -30,9 +30,9 @@ public class PlayerManager : MonoBehaviour
 	{
 		float horizontalMove = Input.GetAxis("Horizontal");
 		float verticalMove = Input.GetAxis("Vertical");
-		transform.Translate(new Vector3(horizontalMove, 0, verticalMove) * moveSpeed * Time.deltaTime);
+		transform.Translate(new Vector3(horizontalMove, 0, verticalMove) * moveSpeed * Time.fixedDeltaTime);
 
 		float mouseRotation_X = Input.GetAxis("Mouse X");
-		transform.Rotate(new Vector3(0, mouseRotation_X, 0) * rotateSpeed * Time.deltaTime);
+		transform.Rotate(new Vector3(0, mouseRotation_X, 0) * rotateSpeed * Time.fixedDeltaTime);
 	}
 }
