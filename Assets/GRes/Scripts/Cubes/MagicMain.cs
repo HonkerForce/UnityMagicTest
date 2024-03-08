@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.Events;
+using System.Reflection;
 
 public class MagicMain : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class MagicMain : MonoBehaviour
 	[SerializeField] private float mMoveSpeed = 0f;
 	[SerializeField] private float mRotateSpeed = 0f;
 	[SerializeField] private float mJumpHeight = 0f;
-
-	new public Rigidbody rigidbody;
 
 	public ObjectPool<GameObject> objPool;
 
@@ -89,6 +88,6 @@ public class MagicMain : MonoBehaviour
 		transform.Rotate(new Vector3(0, horizontalRotate, 0) * RotationSpeed * Time.deltaTime);
 
 		float jumpMove = Input.GetAxis("Jump");
-		rigidbody?.AddForce(new Vector3(0, jumpMove, 0) * mJumpHeight * Time.deltaTime, ForceMode.Impulse);
+		GetComponent<Rigidbody>()?.AddForce(new Vector3(0, jumpMove, 0) * mJumpHeight * Time.deltaTime, ForceMode.Impulse);
     }
 }

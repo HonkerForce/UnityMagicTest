@@ -4,5 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/HybridCLRTest/HybridCLRTest.unity
+    guid: d6c159979f9c5d8468a3851410b94e71
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 69669591a5a362d4f8b46de5bebc1d16, type: 2}
