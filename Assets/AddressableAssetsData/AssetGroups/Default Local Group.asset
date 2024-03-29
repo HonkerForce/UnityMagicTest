@@ -18,9 +18,10 @@ MonoBehaviour:
   m_GUID: 47a5e19e63b12e04b94ce52299fd4d93
   m_SerializeEntries:
   - m_GUID: c6cbc2943572dce4cbf0eec82462ac6a
-    m_Address: Assets/GRes/Prefabs/HybridCLRTest/PrintLog.prefab
+    m_Address: PrintLog
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - default
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c011144161155be4ca257e2d62717c02, type: 2}
   m_SchemaSet:
